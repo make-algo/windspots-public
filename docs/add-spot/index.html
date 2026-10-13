@@ -4,20 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WindSpots - Shared spot</title>
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" href="../favicon.png">
+    <link rel="stylesheet" href="../site.css">
 </head>
 <body>
-    <nav class="nav">
-        <a href="../SUPPORT.html">Support</a>
-        <a href="../PRIVACY.html">Privacy Policy</a>
-        <a href="../TERMS_OF_USE.html">Terms of Use</a>
-    </nav>
+    <div class="doc-head">
+        <header class="topbar">
+            <a class="brand" href="/">
+                <img src="../img/icon.png" alt="" width="32" height="32">
+                <span>WindSpots</span>
+            </a>
+            <nav class="toplinks" aria-label="Site">
+                <a href="../SUPPORT.html">Support</a>
+                <a href="../PRIVACY.html">Privacy</a>
+                <a href="../TERMS_OF_USE.html">Terms</a>
+            </nav>
+        </header>
+    </div>
 
-    <main>
+    <main class="doc">
         <h1 id="title">A spot was shared with you</h1>
         <p>Open this link on an iPhone with WindSpots installed to add the spot and see its forecast.</p>
         <p id="coords"></p>
-        <p><a id="open" href="#">Open in WindSpots</a></p>
+        <p><a id="open" class="store-badge" href="#" style="text-decoration:none;margin-top:12px">Open in WindSpots</a></p>
     </main>
 
     <script>
@@ -34,5 +43,9 @@
         }
         document.getElementById("open").href = "windspots://add-spot" + window.location.search;
     </script>
+
+    <footer class="footer">
+        <p class="wrap fine">Weather data by <a href="https://open-meteo.com">Open-Meteo.com</a> (CC BY 4.0). © 2026 Make Algo.</p>
+    </footer>
 </body>
 </html>

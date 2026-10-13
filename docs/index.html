@@ -3,25 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WindSpots</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>WindSpots — Is it blowing?</title>
+    <meta name="description" content="WindSpots shows the wind at all your spots at a glance: hourly wind, gusts and direction for every spot you ride.">
+    <meta property="og:title" content="WindSpots — Is it blowing?">
+    <meta property="og:description" content="Hourly wind, gusts and direction for every spot you ride. One glance, every morning.">
+    <meta property="og:image" content="https://windspots.make-algo.com/img/icon.png">
+    <link rel="icon" href="favicon.png">
+    <link rel="apple-touch-icon" href="img/icon.png">
+    <link rel="stylesheet" href="site.css">
 </head>
-<body>
-    <nav class="nav">
-        <a href="SUPPORT.html">Support</a>
-        <a href="PRIVACY.html">Privacy Policy</a>
-        <a href="TERMS_OF_USE.html">Terms of Use</a>
-    </nav>
+<body class="landing">
+    <header class="topbar">
+        <a class="brand" href="/">
+            <img src="img/icon.png" alt="" width="32" height="32">
+            <span>WindSpots</span>
+        </a>
+        <nav class="toplinks" aria-label="Site">
+            <a href="SUPPORT.html">Support</a>
+            <a href="PRIVACY.html">Privacy</a>
+        </nav>
+    </header>
 
     <main>
-        <h1>WindSpots</h1>
-        <p>Save your favourite wind spots and check each one's hourly forecast at a glance: wind speed, gusts, direction and temperature.</p>
-        <ul>
-            <li><a href="SUPPORT.html">Support</a></li>
-            <li><a href="PRIVACY.html">Privacy Policy</a></li>
-            <li><a href="TERMS_OF_USE.html">Terms of Use</a></li>
-        </ul>
-        <p>Weather data by <a href="https://open-meteo.com">Open-Meteo.com</a>.</p>
+        <!-- The hero is a live forecast: the page is the product. -->
+        <section class="now" id="now" data-intensity="moderate" aria-labelledby="now-title">
+            <div class="wrap">
+                <p class="now-where">
+                    <span class="now-label">Right now in</span>
+                    <span class="spot-picker" role="group" aria-label="Choose a spot">
+                        <button type="button" data-spot="tarifa" aria-pressed="true">Tarifa</button>
+                        <button type="button" data-spot="dakhla" aria-pressed="false">Dakhla</button>
+                        <button type="button" data-spot="maui" aria-pressed="false">Maui</button>
+                        <button type="button" data-spot="capetown" aria-pressed="false">Cape Town</button>
+                        <button type="button" data-spot="leucate" aria-pressed="false">Leucate</button>
+                        <button type="button" data-spot="here" aria-pressed="false" class="here">Near me</button>
+                    </span>
+                </p>
+
+                <h1 id="now-title" class="reading" aria-live="polite">
+                    <span class="knots" id="knots">18</span><span class="unit">kt</span>
+                    <span class="arrow" id="arrow" aria-hidden="true">↑</span>
+                </h1>
+                <p class="detail" id="detail">Gusts 25 kt, from the east.</p>
+                <p class="outlook" id="outlook">Peaks at 28 kt tomorrow at 14:00.</p>
+
+                <div class="cta">
+                    <span class="store-badge" aria-label="Coming soon to the App Store">
+                        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M16.37 12.6c-.02-2.2 1.8-3.26 1.88-3.31-1.02-1.5-2.62-1.7-3.19-1.72-1.36-.14-2.65.8-3.34.8-.69 0-1.75-.78-2.88-.76-1.48.02-2.85.86-3.61 2.19-1.54 2.67-.39 6.62 1.11 8.79.73 1.06 1.6 2.25 2.75 2.2 1.1-.04 1.52-.71 2.85-.71 1.33 0 1.71.71 2.88.69 1.19-.02 1.94-1.08 2.67-2.14.84-1.23 1.19-2.42 1.21-2.48-.03-.01-2.32-.89-2.33-3.55zM14.18 6.12c.61-.74 1.02-1.76.91-2.78-.88.04-1.94.59-2.57 1.32-.56.65-1.06 1.69-.93 2.69.98.08 1.98-.5 2.59-1.23z"/></svg>
+                        <span><small>Coming soon to the</small>App Store</span>
+                    </span>
+                    <span class="cta-note">Free · iPhone</span>
+                </div>
+            </div>
+
+            <!-- Next hours, in the same coloured cells the app uses. -->
+            <div class="strip-wrap">
+                <ol class="strip" id="strip" aria-label="Wind forecast for the next hours"></ol>
+            </div>
+            <p class="wrap source">Live forecast · Weather data by <a href="https://open-meteo.com">Open-Meteo.com</a></p>
+        </section>
+
+        <section class="feature" aria-labelledby="f1">
+            <div class="wrap feature-grid">
+                <figure class="phone">
+                    <img src="img/app-home.jpg" width="720" height="1564" loading="lazy"
+                         alt="WindSpots home screen: spots grouped as Dakhla and Cádiz, with hourly wind tables for Tarifa and Palmones">
+                </figure>
+                <div class="feature-copy">
+                    <h2 id="f1">Every spot you ride.<br>One glance.</h2>
+                    <p>Tarifa, Palmones and Conil, side by side. Wind, gusts and direction hour by hour, coloured so you see where it's on before you read a number.</p>
+                    <ul class="facts">
+                        <li><strong>10 days</strong> of hourly forecast</li>
+                        <li><strong>Knots, m/s, km/h, mph or Beaufort</strong>, per spot</li>
+                        <li><strong>Groups</strong> for each trip or coast</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="feature alt" aria-labelledby="f2">
+            <div class="wrap feature-grid reverse">
+                <figure class="phone">
+                    <img src="img/app-search.jpg" width="720" height="1564" loading="lazy"
+                         alt="Search screen listing nearby spots around Tarifa with their distance">
+                </figure>
+                <div class="feature-copy">
+                    <h2 id="f2">Find it.<br>Or drop a pin.</h2>
+                    <p>Search almost 12,000 spots by name or country, or let WindSpots list the ones near you. Your secret beach isn't on any list? Put it on the map yourself.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="feature" aria-labelledby="f3">
+            <div class="wrap share">
+                <h2 id="f3">Tell your crew it's on.</h2>
+                <p>Share a spot and your friends open the same forecast, ready to add.</p>
+                <div class="bubble" role="img" aria-label="Example message: Perfect conditions at Tarifa! Check it out, followed by a WindSpots link">
+                    <p>Perfect conditions at Tarifa! 🏄‍♂️ Check it out:</p>
+                    <p class="link">windspots.make-algo.com/add-spot?name=Tarifa…</p>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <footer class="footer">
+        <div class="wrap footer-row">
+            <a class="brand" href="/">
+                <img src="img/icon.png" alt="" width="28" height="28">
+                <span>WindSpots</span>
+            </a>
+            <nav aria-label="Legal">
+                <a href="SUPPORT.html">Support</a>
+                <a href="PRIVACY.html">Privacy Policy</a>
+                <a href="TERMS_OF_USE.html">Terms of Use</a>
+            </nav>
+        </div>
+        <p class="wrap fine">Weather data by <a href="https://open-meteo.com">Open-Meteo.com</a> (CC BY 4.0). Forecasts are for planning only — always check local conditions. © 2026 Make Algo.</p>
+    </footer>
+
+    <script src="now.js"></script>
 </body>
 </html>
