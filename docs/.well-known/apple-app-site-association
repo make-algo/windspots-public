@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["4R3JX54K82.com.make-algo.windspot"],
+        "components": [
+          { "/": "/add-spot", "comment": "Shared spots: /add-spot?name=…&lat=…&lon=…" },
+          { "/": "/add-spot/", "comment": "Same, with a trailing slash" }
+        ]
+      }
+    ]
+  }
+}

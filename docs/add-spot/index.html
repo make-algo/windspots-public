@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WindSpots - Shared spot</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <nav class="nav">
+        <a href="../SUPPORT.html">Support</a>
+        <a href="../PRIVACY.html">Privacy Policy</a>
+        <a href="../TERMS_OF_USE.html">Terms of Use</a>
+    </nav>
+
+    <main>
+        <h1 id="title">A spot was shared with you</h1>
+        <p>Open this link on an iPhone with WindSpots installed to add the spot and see its forecast.</p>
+        <p id="coords"></p>
+        <p><a id="open" href="#">Open in WindSpots</a></p>
+    </main>
+
+    <script>
+        // Shared links look like /add-spot?name=…&lat=…&lon=…
+        var params = new URLSearchParams(window.location.search);
+        var name = params.get("name");
+        var lat = params.get("lat");
+        var lon = params.get("lon");
+        if (name) {
+            document.getElementById("title").textContent = name;
+        }
+        if (lat && lon) {
+            document.getElementById("coords").textContent = lat + ", " + lon;
+        }
+        document.getElementById("open").href = "windspots://add-spot" + window.location.search;
+    </script>
+</body>
+</html>
